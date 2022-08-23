@@ -1,0 +1,49 @@
+{% extends "base.html" %}
+{% load crispy_forms_tags %}
+
+{% block title %} Calcular Cobrança{% endblock %}
+
+{% block content %}
+  <h1>Calcular Cobrança</h1>
+  <form class="form-horizontal" method="post" action="{% url 'phone_plans:process_charges' %}">
+    {% csrf_token %}
+    {{ form|crispy }}
+    <div class="control-group">
+      <div class="controls">
+        <button type="submit" class="btn btn-primary">Calcular</button>
+      </div>
+    </div>
+  </form>
+  {% if result %}
+    <h2 class="display-6 text-center mb-4">Resultados</h2>
+    <div class="table-responsive">
+      <table class="table text-center">
+        <thead>
+          <tr>
+            <th style="width: 15%;"></th>
+            <th style="width: 22%;">Origem</th>
+            <th style="width: 22%;">Destino</th>
+            <th style="width: 22%;">Taxa</th>
+            <th style="width: 22%;">Total</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <th scope="row" class="text-start">Sem Plano</th>
+            <td>{{result.charge.origin}}</td>
+            <td>{{result.charge.destiny}}</td>
+            <td>{{result.charge.tax}}</td>
+            <td>{{result.total_without_plan}}</td>
+          </tr>
+          <tr>
+            <th scope="row" class="text-start">{{result.plan.name}}</th>
+            <td>{{result.charge.origin}}</td>
+            <td>{{result.charge.destiny}}</td>
+            <td>{{result.tax}}</td>
+            <td>{{result.total}}</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  {% endif %}
+{% endblock %}
