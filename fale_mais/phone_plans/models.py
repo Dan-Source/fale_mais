@@ -2,9 +2,6 @@ from django.db import models
 
 
 class codeDDD(models.Model):
-    """
-    
-    """
 
     code = models.CharField(max_length=3)
     city = models.CharField(max_length=50)
