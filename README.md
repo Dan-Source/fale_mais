@@ -56,5 +56,5 @@ docker-compose -f local.yml down
 Execute os teste e verifica se o sistema funciona de acordo com esperado:
 
 ```bash
-docker-compose -f local.yml up
+docker-compose -f local.yml run --rm django pytest
 ```
