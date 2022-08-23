@@ -13,8 +13,9 @@ origem e destino.
 Preocupada com a transparência junto aos seus clientes, solicitou a disponibilização de uma
 página na web onde o cliente pode calcular o valor da ligação.
 Onde, o cliente pode escolher os códigos das cidades de origem e destino, o tempo da ligação em minutos e escolher qual o plano FaleMais. O sistema mostra dois valores:
-    (1) o valor da ligação com o plano.
-    (2) sem o plano.
+
+    - (1) o valor da ligação com o plano.
+    - (2) sem o plano.
 
 # Prerequisites
 
